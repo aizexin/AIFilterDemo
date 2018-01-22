@@ -7,19 +7,31 @@
 //
 
 import UIKit
+import GPUImage
 
 class ViewController: UIViewController {
 
+    var videoCamera:GPUImageVideoCamera?
+    var filter:GPUImageSobelEdgeDetectionFilter?
+    @IBOutlet weak var gpuImage: GPUImageView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        videoCamera = GPUImageVideoCamera(sessionPreset: AVCaptureSession.Preset.vga640x480.rawValue, cameraPosition: .front)
+        videoCamera!.outputImageOrientation = .portrait;
+        filter = GPUImageSobelEdgeDetectionFilter()
+        videoCamera?.addTarget(filter)
+        filter?.addTarget(gpuImage)
+        videoCamera?.startCapture()
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func onPanSlider(_ sender: Any) {
     }
-
-
+    @IBAction func onClickSnap(_ sender: Any) {
+        
+    }
 }
 
