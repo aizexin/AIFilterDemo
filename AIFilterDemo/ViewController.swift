@@ -8,10 +8,11 @@
 
 import UIKit
 import GPUImage
+import Photos
 
 class ViewController: UIViewController {
 
-    var videoCamera:GPUImageVideoCamera?
+    var videoCamera:GPUImageStillCamera?
     var filter:GPUImageSobelEdgeDetectionFilter?
     @IBOutlet weak var gpuImage: GPUImageView!
     
@@ -19,7 +20,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        videoCamera = GPUImageVideoCamera(sessionPreset: AVCaptureSession.Preset.vga640x480.rawValue, cameraPosition: .front)
+        videoCamera = GPUImageStillCamera(sessionPreset: AVCaptureSession.Preset.vga640x480.rawValue, cameraPosition: .front)
         videoCamera!.outputImageOrientation = .portrait;
         filter = GPUImageSobelEdgeDetectionFilter()
         videoCamera?.addTarget(filter)
@@ -31,7 +32,14 @@ class ViewController: UIViewController {
     @IBAction func onPanSlider(_ sender: Any) {
     }
     @IBAction func onClickSnap(_ sender: Any) {
-        
+        videoCamera?.capturePhotoAsPNGProcessedUp(toFilter: filter, withCompletionHandler: { (data, error) in
+            PHPhotoLibrary.shared().performChanges( {
+                let creationRequest = PHAssetCreationRequest.forAsset()
+                let creationOptions = PHAssetResourceCreationOptions()
+                creationOptions.shouldMoveFile = true
+                creationRequest.addResource(with: .photo, data: data!, options: nil)
+            }, completionHandler: nil)
+        })
     }
 }
 
