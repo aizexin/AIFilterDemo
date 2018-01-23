@@ -61,6 +61,7 @@
                     </view>
                     <connections>
                         <outlet property="gpuImage" destination="Q5L-kR-KO7" id="G17-XM-hpq"/>
+                        <outlet property="slider" destination="TLb-i2-tPk" id="jBU-Ox-Hte"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
