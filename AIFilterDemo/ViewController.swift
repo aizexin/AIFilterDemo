@@ -58,11 +58,15 @@ class ViewController: UIViewController {
 
     //MARK: Action
     @IBAction func onClickSnap(_ sender: Any) {
-        let image = contentView.ai_takeSnapshot(withFrame: CGRect.init(x: 0, y: 0, width: contentView.contentSize.width, height: contentView.contentSize.height))
-
-        PHPhotoLibrary.shared().performChanges({
-            PHAssetChangeRequest.creationRequestForAsset(from: image)
-        }, completionHandler: nil)
+//        let image = contentView.ai_takeSnapshot(withFrame: CGRect.init(x: 0, y: 0, width: contentView.contentSize.width, height: contentView.contentSize.height))
+        if let capture = self.contentView.capture {
+            
+            PHPhotoLibrary.shared().performChanges({
+                PHAssetChangeRequest.creationRequestForAsset(from: capture)
+            }, completionHandler: nil)
+        } else {
+            print("截图失败")
+        }
     }
 
     
@@ -72,5 +76,35 @@ class ViewController: UIViewController {
         return AIFilterTool.applySketchFilter(image: image!)
     }
 
+}
+
+extension UIScrollView {
+    
+    var capture: UIImage? {
+        
+        var image: UIImage? = nil
+        UIGraphicsBeginImageContext(self.contentSize)
+        do {
+            let savedContentOffset = self.contentOffset
+            let savedFrame = self.frame
+            self.contentOffset = .zero
+            self.frame = CGRect(x: 0, y: 0, width: self.contentSize.width, height: self.contentSize.height)
+            
+            UIGraphicsBeginImageContextWithOptions(CGSize(width: self.contentSize.width, height: self.contentSize.height), false, 0.0)
+            
+            self.layer.render(in: UIGraphicsGetCurrentContext()!)
+            image = UIGraphicsGetImageFromCurrentImageContext()
+            self.contentOffset = savedContentOffset
+            self.frame = savedFrame
+        }
+        UIGraphicsEndImageContext()
+        if image != nil {
+            return image!
+        }
+        return nil
+        
+    }
+    
+    
 }
 
