@@ -15,6 +15,9 @@
 		45F2D5D22015CDC8001B970D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45F2D5D02015CDC8001B970D /* LaunchScreen.storyboard */; };
 		45F2D5DD2015CDC8001B970D /* AIFilterDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F2D5DC2015CDC8001B970D /* AIFilterDemoTests.swift */; };
 		45F2D5E82015CDC8001B970D /* AIFilterDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F2D5E72015CDC8001B970D /* AIFilterDemoUITests.swift */; };
+		45F87897201ADCED0056A6A8 /* AIFilterTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F87896201ADCED0056A6A8 /* AIFilterTool.swift */; };
+		45F8789B201B16BB0056A6A8 /* FWSierraFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F8789A201B16BB0056A6A8 /* FWSierraFilter.m */; };
+		45F878A1201B1C050056A6A8 /* GPUImageFourInputFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F878A0201B1C050056A6A8 /* GPUImageFourInputFilter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,12 @@
 		45F2D5E32015CDC8001B970D /* AIFilterDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AIFilterDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		45F2D5E72015CDC8001B970D /* AIFilterDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIFilterDemoUITests.swift; sourceTree = "<group>"; };
 		45F2D5E92015CDC8001B970D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45F87896201ADCED0056A6A8 /* AIFilterTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIFilterTool.swift; sourceTree = "<group>"; };
+		45F87898201B16BA0056A6A8 /* AIFilterDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AIFilterDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		45F87899201B16BB0056A6A8 /* FWSierraFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWSierraFilter.h; sourceTree = "<group>"; };
+		45F8789A201B16BB0056A6A8 /* FWSierraFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWSierraFilter.m; sourceTree = "<group>"; };
+		45F8789F201B1C050056A6A8 /* GPUImageFourInputFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageFourInputFilter.h; sourceTree = "<group>"; };
+		45F878A0201B1C050056A6A8 /* GPUImageFourInputFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageFourInputFilter.m; sourceTree = "<group>"; };
 		88A91BA093ED8FE8037A2C57 /* Pods-AIFilterDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIFilterDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AIFilterDemo/Pods-AIFilterDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		A9ACDBAC2B2C9B4404A21524 /* Pods_AIFilterDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIFilterDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D969A31EA3E9E9095E3A1ACE /* Pods-AIFilterDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIFilterDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AIFilterDemo/Pods-AIFilterDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -104,12 +113,18 @@
 		45F2D5C62015CDC8001B970D /* AIFilterDemo */ = {
 			isa = PBXGroup;
 			children = (
+				45F87899201B16BB0056A6A8 /* FWSierraFilter.h */,
+				45F8789A201B16BB0056A6A8 /* FWSierraFilter.m */,
+				45F8789F201B1C050056A6A8 /* GPUImageFourInputFilter.h */,
+				45F878A0201B1C050056A6A8 /* GPUImageFourInputFilter.m */,
 				45F2D5C72015CDC8001B970D /* AppDelegate.swift */,
 				45F2D5C92015CDC8001B970D /* ViewController.swift */,
 				45F2D5CB2015CDC8001B970D /* Main.storyboard */,
 				45F2D5CE2015CDC8001B970D /* Assets.xcassets */,
 				45F2D5D02015CDC8001B970D /* LaunchScreen.storyboard */,
 				45F2D5D32015CDC8001B970D /* Info.plist */,
+				45F87896201ADCED0056A6A8 /* AIFilterTool.swift */,
+				45F87898201B16BA0056A6A8 /* AIFilterDemo-Bridging-Header.h */,
 			);
 			path = AIFilterDemo;
 			sourceTree = "<group>";
@@ -220,6 +235,7 @@
 				TargetAttributes = {
 					45F2D5C32015CDC8001B970D = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					45F2D5D72015CDC8001B970D = {
@@ -340,7 +356,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45F8789B201B16BB0056A6A8 /* FWSierraFilter.m in Sources */,
+				45F878A1201B1C050056A6A8 /* GPUImageFourInputFilter.m in Sources */,
 				45F2D5CA2015CDC8001B970D /* ViewController.swift in Sources */,
+				45F87897201ADCED0056A6A8 /* AIFilterTool.swift in Sources */,
 				45F2D5C82015CDC8001B970D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -508,12 +527,15 @@
 			baseConfigurationReference = 88A91BA093ED8FE8037A2C57 /* Pods-AIFilterDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y56852HD87;
 				INFOPLIST_FILE = AIFilterDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = aizexin.AIFilterDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AIFilterDemo/AIFilterDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -524,12 +546,14 @@
 			baseConfigurationReference = D969A31EA3E9E9095E3A1ACE /* Pods-AIFilterDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y56852HD87;
 				INFOPLIST_FILE = AIFilterDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = aizexin.AIFilterDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AIFilterDemo/AIFilterDemo-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
