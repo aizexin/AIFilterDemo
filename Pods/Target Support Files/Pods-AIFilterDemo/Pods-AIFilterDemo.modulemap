@@ -1,0 +1,6 @@
+framework module Pods_AIFilterDemo {
+  umbrella header "Pods-AIFilterDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}
