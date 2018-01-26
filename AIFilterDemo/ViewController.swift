@@ -10,67 +10,66 @@ import UIKit
 import GPUImage
 import Photos
 
-class ViewController: UIViewController ,UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class ViewController: UIViewController {
 
     var videoCamera:GPUImageStillCamera?
     var filter:GPUImageFilter?
-    @IBOutlet weak var gpuImage: UIImageView!
-    @IBOutlet weak var slider: UISlider!
-    let classArray = ["GPUImageBulgeDistortionFilter","GPUImagePinchDistortionFilter","GPUImageStretchDistortionFilter","GPUImageSphereRefractionFilter","GPUImageGlassSphereFilter","GPUImageVignetteFilter","GPUImageKuwaharaFilter","GPUImageKuwaharaRadius3Filter","GPUImagePerlinNoiseFilter","GPUImageCGAColorspaceFilter","GPUImageMosaicFilter","GPUImageJFAVoronoiFilter","GPUImageVoronoiConsumerFilter"]
-    var index = 0
+    
+    @IBOutlet weak var snap: UIButton!
+    var contentView   : UIScrollView!
+    
+    var coldCompareView : CompareFilterView!
+    
+    var midCompareView : CompareFilterView!
+    
+    var warmCompareView : CompareFilterView!
+    
+    var normalCompareView : CompareFilterView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        contentView = UIScrollView.init(frame: view.bounds)
+        contentView.contentSize = CGSize.init(width: 400, height: 230 * 4)
         
-//        videoCamera = GPUImageStillCamera(sessionPreset: AVCaptureSession.Preset.vga640x480.rawValue, cameraPosition: .front)
-//        videoCamera!.outputImageOrientation = .portrait;
-//        filter = GPUImagePosterizeFilter()
-//        videoCamera?.addTarget(filter)
-//        filter?.addTarget(gpuImage)
-//        videoCamera?.startCapture()
+        view.insertSubview(contentView, belowSubview: snap)
+        
+        normalCompareView = CompareFilterView()
+        normalCompareView.setTitle(title: "normal", norImageName: "7无")
+        normalCompareView.frame = CGRect.init(x: 0, y: 0, width: 400, height: 230)
+        contentView.addSubview(normalCompareView)
+        
+        coldCompareView = CompareFilterView()
+        coldCompareView.setTitle(title: "cold", norImageName: "7冷")
+        coldCompareView.frame = CGRect.init(x: 0, y: 230, width: 400, height: 230)
+        contentView.addSubview(coldCompareView)
+        
+        midCompareView = CompareFilterView()
+        midCompareView.setTitle(title: "mid", norImageName: "7中")
+        midCompareView.frame = CGRect.init(x: 0, y: 230 * 2, width: 400, height: 230)
+        contentView.addSubview(midCompareView)
+        
+        warmCompareView = CompareFilterView()
+        warmCompareView.setTitle(title: "warm", norImageName: "7暖")
+        warmCompareView.frame = CGRect.init(x: 0, y: 230 * 3, width: 400, height: 230)
+        contentView.addSubview(warmCompareView)
+        
         
     }
 
     //MARK: Action
-    @IBAction func onPanSlider(_ sender: UISlider) {
-        print("1111")
-        
-//        (filter as! GPUImageNonMaximumSuppressionFilter).sharpness = CGFloat(sender.value)
-    }
-    
     @IBAction func onClickSnap(_ sender: Any) {
-        //判断设置是否支持图片库
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
-            //初始化图片控制器
-            let picker = UIImagePickerController()
-            //设置代理
-            picker.delegate = self
-            //指定图片控制器类型
-            picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
-     
-            //弹出控制器，显示界面
-            self.present(picker, animated: true, completion: {
-                () -> Void in
-            })
-        }else{
-            print("读取相册错误")
-        }
-        
+        let image = contentView.ai_takeSnapshot(withFrame: CGRect.init(x: 0, y: 0, width: contentView.contentSize.width, height: contentView.contentSize.height))
+
+        PHPhotoLibrary.shared().performChanges({
+            PHAssetChangeRequest.creationRequestForAsset(from: image)
+        }, completionHandler: nil)
     }
-    func imagePickerController(_ picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [String : Any]) {
-        //查看info对象
-        print(info)
-        //显示的图片
-        let image:UIImage!
-        //获取选择的原图
-        image = info[UIImagePickerControllerOriginalImage] as! UIImage
+
+    
+    func filterImage(imageName: String) -> UIImage {
+        let image = UIImage.init(named: imageName)
         
-        gpuImage.image = AIFilterTool.applySketchFilter(image: image)
-        //图片控制器退出
-        picker.dismiss(animated: true, completion: {
-            () -> Void in
-        })
+        return AIFilterTool.applySketchFilter(image: image!)
     }
 
 }

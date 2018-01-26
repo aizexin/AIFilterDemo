@@ -18,50 +18,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view clipsSubviews="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Q5L-kR-KO7" customClass="UIImageView">
-                                <rect key="frame" x="0.0" y="20" width="375" height="517"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYz-Zz-cQj">
-                                <rect key="frame" x="0.0" y="588" width="375" height="79"/>
+                                <rect key="frame" x="0.0" y="637" width="375" height="30"/>
                                 <state key="normal" title="snap"/>
                                 <connections>
                                     <action selector="onClickSnap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bvc-87-CSN"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="TLb-i2-tPk">
-                                <rect key="frame" x="-2" y="559" width="379" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="29" id="n43-4Z-05E"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="onPanSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="s9z-Hk-hHz"/>
-                                </connections>
-                            </slider>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Q5L-kR-KO7" firstAttribute="trailing" secondItem="TLb-i2-tPk" secondAttribute="trailing" id="0Ao-cB-u3Z"/>
-                            <constraint firstItem="Q5L-kR-KO7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3px-xg-75h"/>
-                            <constraint firstItem="QYz-Zz-cQj" firstAttribute="top" secondItem="TLb-i2-tPk" secondAttribute="bottom" id="6ZC-0O-D3c"/>
-                            <constraint firstItem="Q5L-kR-KO7" firstAttribute="trailing" secondItem="QYz-Zz-cQj" secondAttribute="trailing" id="FgW-fi-002"/>
                             <constraint firstItem="QYz-Zz-cQj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ham-CH-jfU"/>
-                            <constraint firstItem="Q5L-kR-KO7" firstAttribute="leading" secondItem="TLb-i2-tPk" secondAttribute="leading" id="KDV-Az-qG3"/>
-                            <constraint firstAttribute="bottom" secondItem="Q5L-kR-KO7" secondAttribute="bottom" constant="130" id="PU9-Gi-ajm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QYz-Zz-cQj" secondAttribute="trailing" id="VKC-ec-Yoy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="QYz-Zz-cQj" secondAttribute="bottom" id="ZUa-Ih-vkO"/>
-                            <constraint firstItem="Q5L-kR-KO7" firstAttribute="leading" secondItem="QYz-Zz-cQj" secondAttribute="leading" id="Zdf-Nv-szn"/>
-                            <constraint firstItem="TLb-i2-tPk" firstAttribute="top" secondItem="Q5L-kR-KO7" secondAttribute="bottom" constant="22" id="bY7-DN-7QX"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Q5L-kR-KO7" secondAttribute="trailing" id="bcO-Xe-cLW"/>
-                            <constraint firstItem="Q5L-kR-KO7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="fZE-P4-Lqn"/>
-                            <constraint firstItem="TLb-i2-tPk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="q71-Ii-Vxa"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TLb-i2-tPk" secondAttribute="trailing" id="uLo-ZF-alX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="gpuImage" destination="Q5L-kR-KO7" id="G17-XM-hpq"/>
-                        <outlet property="slider" destination="TLb-i2-tPk" id="jBU-Ox-Hte"/>
+                        <outlet property="snap" destination="QYz-Zz-cQj" id="I5I-lw-xjM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

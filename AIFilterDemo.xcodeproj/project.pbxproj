@@ -18,6 +18,8 @@
 		45F87897201ADCED0056A6A8 /* AIFilterTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F87896201ADCED0056A6A8 /* AIFilterTool.swift */; };
 		45F8789B201B16BB0056A6A8 /* FWSierraFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F8789A201B16BB0056A6A8 /* FWSierraFilter.m */; };
 		45F878A1201B1C050056A6A8 /* GPUImageFourInputFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F878A0201B1C050056A6A8 /* GPUImageFourInputFilter.m */; };
+		45F878A3201B2E630056A6A8 /* CompareFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F878A2201B2E630056A6A8 /* CompareFilterView.swift */; };
+		45F878A5201B30E40056A6A8 /* UIView+AIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F878A4201B30E30056A6A8 /* UIView+AIExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		45F8789A201B16BB0056A6A8 /* FWSierraFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWSierraFilter.m; sourceTree = "<group>"; };
 		45F8789F201B1C050056A6A8 /* GPUImageFourInputFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageFourInputFilter.h; sourceTree = "<group>"; };
 		45F878A0201B1C050056A6A8 /* GPUImageFourInputFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageFourInputFilter.m; sourceTree = "<group>"; };
+		45F878A2201B2E630056A6A8 /* CompareFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareFilterView.swift; sourceTree = "<group>"; };
+		45F878A4201B30E30056A6A8 /* UIView+AIExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AIExtension.swift"; sourceTree = "<group>"; };
 		88A91BA093ED8FE8037A2C57 /* Pods-AIFilterDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIFilterDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AIFilterDemo/Pods-AIFilterDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		A9ACDBAC2B2C9B4404A21524 /* Pods_AIFilterDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIFilterDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D969A31EA3E9E9095E3A1ACE /* Pods-AIFilterDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIFilterDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AIFilterDemo/Pods-AIFilterDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -119,7 +123,9 @@
 				45F878A0201B1C050056A6A8 /* GPUImageFourInputFilter.m */,
 				45F2D5C72015CDC8001B970D /* AppDelegate.swift */,
 				45F2D5C92015CDC8001B970D /* ViewController.swift */,
+				45F878A2201B2E630056A6A8 /* CompareFilterView.swift */,
 				45F2D5CB2015CDC8001B970D /* Main.storyboard */,
+				45F878A4201B30E30056A6A8 /* UIView+AIExtension.swift */,
 				45F2D5CE2015CDC8001B970D /* Assets.xcassets */,
 				45F2D5D02015CDC8001B970D /* LaunchScreen.storyboard */,
 				45F2D5D32015CDC8001B970D /* Info.plist */,
@@ -356,8 +362,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45F878A5201B30E40056A6A8 /* UIView+AIExtension.swift in Sources */,
 				45F8789B201B16BB0056A6A8 /* FWSierraFilter.m in Sources */,
 				45F878A1201B1C050056A6A8 /* GPUImageFourInputFilter.m in Sources */,
+				45F878A3201B2E630056A6A8 /* CompareFilterView.swift in Sources */,
 				45F2D5CA2015CDC8001B970D /* ViewController.swift in Sources */,
 				45F87897201ADCED0056A6A8 /* AIFilterTool.swift in Sources */,
 				45F2D5C82015CDC8001B970D /* AppDelegate.swift in Sources */,
