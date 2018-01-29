@@ -58,9 +58,7 @@ class ViewController: UIViewController {
 
     //MARK: Action
     @IBAction func onClickSnap(_ sender: Any) {
-//        let image = contentView.ai_takeSnapshot(withFrame: CGRect.init(x: 0, y: 0, width: contentView.contentSize.width, height: contentView.contentSize.height))
         if let capture = self.contentView.capture {
-            
             PHPhotoLibrary.shared().performChanges({
                 PHAssetChangeRequest.creationRequestForAsset(from: capture)
             }, completionHandler: nil)
@@ -68,11 +66,9 @@ class ViewController: UIViewController {
             print("截图失败")
         }
     }
-
     
     func filterImage(imageName: String) -> UIImage {
         let image = UIImage.init(named: imageName)
-        
         return AIFilterTool.applySketchFilter(image: image!)
     }
 
