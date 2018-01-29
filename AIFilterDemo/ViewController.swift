@@ -69,7 +69,7 @@ class ViewController: UIViewController {
     
     func filterImage(imageName: String) -> UIImage {
         let image = UIImage.init(named: imageName)
-        return AIFilterTool.applySketchFilter(image: image!)
+        return AIFilterTool.applyValenciaFilter(image: image!)
     }
 
 }

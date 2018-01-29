@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		35DF3E9CB236F2DD4E688A61 /* Pods_AIFilterDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ACDBAC2B2C9B4404A21524 /* Pods_AIFilterDemo.framework */; };
+		45F20C90201EE4320084BD0E /* FWValenciaFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F20C8F201EE4320084BD0E /* FWValenciaFilter.m */; };
 		45F2D5C82015CDC8001B970D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F2D5C72015CDC8001B970D /* AppDelegate.swift */; };
 		45F2D5CA2015CDC8001B970D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F2D5C92015CDC8001B970D /* ViewController.swift */; };
 		45F2D5CD2015CDC8001B970D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45F2D5CB2015CDC8001B970D /* Main.storyboard */; };
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		45F20C8E201EE4310084BD0E /* FWValenciaFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWValenciaFilter.h; sourceTree = "<group>"; };
+		45F20C8F201EE4320084BD0E /* FWValenciaFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWValenciaFilter.m; sourceTree = "<group>"; };
 		45F2D5C42015CDC8001B970D /* AIFilterDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIFilterDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45F2D5C72015CDC8001B970D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45F2D5C92015CDC8001B970D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +122,8 @@
 			children = (
 				45F87899201B16BB0056A6A8 /* FWSierraFilter.h */,
 				45F8789A201B16BB0056A6A8 /* FWSierraFilter.m */,
+				45F20C8E201EE4310084BD0E /* FWValenciaFilter.h */,
+				45F20C8F201EE4320084BD0E /* FWValenciaFilter.m */,
 				45F8789F201B1C050056A6A8 /* GPUImageFourInputFilter.h */,
 				45F878A0201B1C050056A6A8 /* GPUImageFourInputFilter.m */,
 				45F2D5C72015CDC8001B970D /* AppDelegate.swift */,
@@ -365,6 +370,7 @@
 				45F878A5201B30E40056A6A8 /* UIView+AIExtension.swift in Sources */,
 				45F8789B201B16BB0056A6A8 /* FWSierraFilter.m in Sources */,
 				45F878A1201B1C050056A6A8 /* GPUImageFourInputFilter.m in Sources */,
+				45F20C90201EE4320084BD0E /* FWValenciaFilter.m in Sources */,
 				45F878A3201B2E630056A6A8 /* CompareFilterView.swift in Sources */,
 				45F2D5CA2015CDC8001B970D /* ViewController.swift in Sources */,
 				45F87897201ADCED0056A6A8 /* AIFilterTool.swift in Sources */,
