@@ -53,7 +53,6 @@ class ViewController: UIViewController {
         warmCompareView.frame = CGRect.init(x: 0, y: 230 * 3, width: 400, height: 230)
         contentView.addSubview(warmCompareView)
         
-        
     }
 
     //MARK: Action
@@ -66,12 +65,6 @@ class ViewController: UIViewController {
             print("截图失败")
         }
     }
-    
-    func filterImage(imageName: String) -> UIImage {
-        let image = UIImage.init(named: imageName)
-        return AIFilterTool.applyValenciaFilter(image: image!)
-    }
-
 }
 
 extension UIScrollView {

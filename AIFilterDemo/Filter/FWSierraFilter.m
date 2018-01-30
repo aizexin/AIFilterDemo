@@ -31,7 +31,7 @@ NSString *const kFWSierraShaderString = SHADER_STRING
      
      vec4 mapped;
      mapped.r = texture2D(inputImageTexture4, vec2(texel.r, .16666)).r;
-     mapped.g = texture2D(inputImageTexture4, vec2(texel.g, .5)).g;
+     mapped.g = texture2D(inputImageTexture4, vec2(texel.g, 1.)).g;
      mapped.b = texture2D(inputImageTexture4, vec2(texel.b, .83333)).b;
      mapped.a = 1.0;
      
