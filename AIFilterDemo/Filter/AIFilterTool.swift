@@ -56,5 +56,45 @@ class AIFilterTool: NSObject {
         let filterImage = UIImage.init(cgImage: image2!.cgImage!, scale: 2, orientation: image.imageOrientation)
         return filterImage
     }
+    class func applyIFAmaroFilter(image: UIImage) -> UIImage {
+        let filter = IFAmaroFilter()
+        let pic    = GPUImagePicture.init(image: image)
+        pic?.addTarget(filter)
+        pic?.processImage()
+        filter.useNextFrameForImageCapture()
+        let image2 = filter.imageFromCurrentFramebuffer()
+        let filterImage = UIImage.init(cgImage: image2!.cgImage!, scale: 2, orientation: image.imageOrientation)
+        return filterImage
+    }
+    class func applyIFBrannanFilter(image: UIImage) -> UIImage {
+        let filter = IFBrannanFilter()
+        let pic    = GPUImagePicture.init(image: image)
+        pic?.addTarget(filter)
+        pic?.processImage()
+        filter.useNextFrameForImageCapture()
+        let image2 = filter.imageFromCurrentFramebuffer()
+        let filterImage = UIImage.init(cgImage: image2!.cgImage!, scale: 2, orientation: image.imageOrientation)
+        return filterImage
+    }
+    class func applyIFEarlybirdFilter(image: UIImage) -> UIImage {
+        let filter = IFEarlybirdFilter()
+        let pic    = GPUImagePicture.init(image: image)
+        pic?.addTarget(filter)
+        pic?.processImage()
+        filter.useNextFrameForImageCapture()
+        let image2 = filter.imageFromCurrentFramebuffer()
+        let filterImage = UIImage.init(cgImage: image2!.cgImage!, scale: 2, orientation: image.imageOrientation)
+        return filterImage
+    }
+    class func applyIFHefeFilter(image: UIImage) -> UIImage {
+        let filter = AIFilterHefe()
+        let pic    = GPUImagePicture.init(image: image)
+        pic?.addTarget(filter)
+        pic?.processImage()
+        filter.useNextFrameForImageCapture()
+        let image2 = filter.imageFromCurrentFramebuffer()
+        let filterImage = UIImage.init(cgImage: image2!.cgImage!, scale: 2, orientation: image.imageOrientation)
+        return filterImage
+    }
     
 }

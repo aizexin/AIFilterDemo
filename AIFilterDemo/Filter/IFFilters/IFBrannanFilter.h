@@ -6,8 +6,21 @@
 //  Copyright (c) 2012 twitter:@diwup. All rights reserved.
 //
 
+#import <GPUImage/GPUImageFilterGroup.h>
+#import <GPUImage/GPUImageThreeInputFilter.h>
+#import <GPUImage/GPUImagePicture.h>
 #import "IFImageFilter.h"
 
-@interface IFBrannanFilter : IFImageFilter
+@interface AIFilterBrannan : GPUImageTwoInputFilter
 
+@end
+
+@interface IFBrannanFilter : GPUImageFilterGroup
+{
+    GPUImagePicture *imageSource1;
+    GPUImagePicture *imageSource2;
+    GPUImagePicture *imageSource3;
+    GPUImagePicture *imageSource4;
+    GPUImagePicture *imageSource5;
+}
 @end
