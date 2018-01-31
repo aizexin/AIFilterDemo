@@ -44,6 +44,6 @@ class CompareFilterView: UIView {
         let image = UIImage.init(named: norImageName)
         
         norImageView.image = image
-        filterImgaeView.image = AIFilterTool.applySierraFilter(image: image!)
+        filterImgaeView.image = AIFilterTool.applyIF1977Filter(image: image!)
     }
 }

@@ -4,3 +4,4 @@
 
 #import "FWSierraFilter.h"
 #import "FWValenciaFilter.h"
+#import "InstaFilters.h"
