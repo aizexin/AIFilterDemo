@@ -52,6 +52,7 @@ NSString *const kFWValenciaShaderString = SHADER_STRING
  }
  );
 
+
 @implementation FWFilter8
 
 - (id)init;

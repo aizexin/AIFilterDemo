@@ -10,12 +10,13 @@
 #import <GPUImage/GPUImageThreeInputFilter.h>
 #import <GPUImage/GPUImagePicture.h>
 
+@interface AIFilter1977 : GPUImageThreeInputFilter
+
+@end
+
 @interface IF1977Filter : GPUImageFilterGroup
 {
     GPUImagePicture *imageSource1;
     GPUImagePicture *imageSource2;
-    GPUImagePicture *imageSource3;
-    GPUImagePicture *imageSource4;
-    GPUImagePicture *imageSource5;
 }
 @end
