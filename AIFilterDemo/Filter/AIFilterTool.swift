@@ -111,5 +111,15 @@ class AIFilterTool: NSObject {
         let filterImage = UIImage.init(cgImage: image2!.cgImage!, scale: 2, orientation: image.imageOrientation)
         return filterImage
     }
+    class func applyIFInkwellFilter(image: UIImage) -> UIImage {
+        let filter = IFInkwellFilter()
+        let pic    = GPUImagePicture.init(image: image)
+        pic?.addTarget(filter)
+        pic?.processImage()
+        filter.useNextFrameForImageCapture()
+        let image2 = filter.imageFromCurrentFramebuffer()
+        let filterImage = UIImage.init(cgImage: image2!.cgImage!, scale: 2, orientation: image.imageOrientation)
+        return filterImage
+    }
     
 }

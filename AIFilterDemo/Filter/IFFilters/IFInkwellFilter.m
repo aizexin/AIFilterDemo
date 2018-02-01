@@ -26,7 +26,7 @@ NSString *const kIFInkWellShaderString = SHADER_STRING
  }
 );
 
-@implementation IFInkwellFilter
+@implementation AIFilterInkwell
 
 - (id)init;
 {
@@ -34,6 +34,32 @@ NSString *const kIFInkWellShaderString = SHADER_STRING
     {
 		return nil;
     }
+    
+    return self;
+}
+
+@end
+
+@implementation IFInkwellFilter
+
+- (id)init
+{
+    if (!(self = [super init]))
+    {
+        return nil;
+    }
+    
+    AIFilterInkwell *filter = [[AIFilterInkwell alloc] init];
+    [self addFilter:filter];
+    
+    UIImage *image1 = [UIImage imageNamed:@"inkwellMap"];
+    imageSource1 = [[GPUImagePicture alloc] initWithImage:image1];
+    [imageSource1 addTarget:filter atTextureLocation:1];
+    [imageSource1 processImage];
+
+    
+    self.initialFilters = [NSArray arrayWithObjects:filter, nil];
+    self.terminalFilter = filter;
     
     return self;
 }
