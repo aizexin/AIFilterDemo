@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GPUImage
 
 class CompareFilterView: UIView {
 
@@ -39,11 +40,16 @@ class CompareFilterView: UIView {
         tipLabel.frame     = CGRect.init(x: 100, y: 200, width: 200, height: 30)
     }
     
-    func setTitle(title: String, norImageName :String ) -> Void {
+    func setTitle(title: String, norImageName :String ,filter: GPUImageFilterGroup? = nil) -> Void {
         tipLabel.text = title
         let image = UIImage.init(named: norImageName)
         
         norImageView.image = image
-        filterImgaeView.image = AIFilterTool.applyIFXproIIFilter(image: image!)
+        
+        if filter == nil {
+            self.filterImgaeView.image = AIFilterTool.applyIF1977Filter(image: image!)
+        } else {
+            self.filterImgaeView.image = AIFilterTool.applyFilter(filter: filter!, image: image!)
+        }
     }
 }
