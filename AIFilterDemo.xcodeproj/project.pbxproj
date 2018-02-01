@@ -32,6 +32,7 @@
 		45C242CA2021A5B800658F6F /* IFHudsonFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C242B72021A5B700658F6F /* IFHudsonFilter.m */; };
 		45C242D02022BAAF00658F6F /* GPUImageFiveInputFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C242CF2022BAAF00658F6F /* GPUImageFiveInputFilter.m */; };
 		45C242D32022CF7D00658F6F /* GPUImageSixInputFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C242D22022CF7D00658F6F /* GPUImageSixInputFilter.m */; };
+		45C242D520231A9A00658F6F /* AIPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C242D420231A9A00658F6F /* AIPhotoViewController.swift */; };
 		45F20C90201EE4320084BD0E /* FWValenciaFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F20C8F201EE4320084BD0E /* FWValenciaFilter.m */; };
 		45F2D5C82015CDC8001B970D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F2D5C72015CDC8001B970D /* AppDelegate.swift */; };
 		45F2D5CA2015CDC8001B970D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F2D5C92015CDC8001B970D /* ViewController.swift */; };
@@ -110,6 +111,7 @@
 		45C242CF2022BAAF00658F6F /* GPUImageFiveInputFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageFiveInputFilter.m; sourceTree = "<group>"; };
 		45C242D12022CF7D00658F6F /* GPUImageSixInputFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageSixInputFilter.h; sourceTree = "<group>"; };
 		45C242D22022CF7D00658F6F /* GPUImageSixInputFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageSixInputFilter.m; sourceTree = "<group>"; };
+		45C242D420231A9A00658F6F /* AIPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIPhotoViewController.swift; sourceTree = "<group>"; };
 		45F20C8E201EE4310084BD0E /* FWValenciaFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWValenciaFilter.h; sourceTree = "<group>"; };
 		45F20C8F201EE4320084BD0E /* FWValenciaFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWValenciaFilter.m; sourceTree = "<group>"; };
 		45F2D5C42015CDC8001B970D /* AIFilterDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIFilterDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -259,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				45F2D5C92015CDC8001B970D /* ViewController.swift */,
+				45C242D420231A9A00658F6F /* AIPhotoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 			files = (
 				45C242B92021A5B800658F6F /* IFNormalFilter.m in Sources */,
 				45C242BF2021A5B800658F6F /* IFSutroFilter.m in Sources */,
+				45C242D520231A9A00658F6F /* AIPhotoViewController.swift in Sources */,
 				45F8789B201B16BB0056A6A8 /* FWSierraFilter.m in Sources */,
 				45C242D02022BAAF00658F6F /* GPUImageFiveInputFilter.m in Sources */,
 				45C242C82021A5B800658F6F /* IFRiseFilter.m in Sources */,

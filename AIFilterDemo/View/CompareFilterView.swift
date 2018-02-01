@@ -18,38 +18,47 @@ class CompareFilterView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         norImageView = UIImageView()
+        norImageView.contentMode = .scaleAspectFit
+//        norImageView.layer.masksToBounds = true
         self.addSubview(norImageView)
         
         filterImgaeView = UIImageView()
+//        filterImgaeView.layer.masksToBounds = true
+        filterImgaeView.contentMode = .scaleAspectFit
         self.addSubview(filterImgaeView)
         
         tipLabel      = UILabel()
         self.addSubview(tipLabel)
-        fitUI(frame: frame)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func fitUI(frame: CGRect) -> Void {
-        norImageView.frame = CGRect.init(x: 0, y: 0, width: 200, height: 200)
-        
-        filterImgaeView.frame = CGRect.init(x: 200, y: 0, width: 200, height: 200)
-        
-        tipLabel.frame     = CGRect.init(x: 100, y: 200, width: 200, height: 30)
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        fitUI()
     }
     
-    func setTitle(title: String, norImageName :String ,filter: GPUImageFilterGroup? = nil) -> Void {
-        tipLabel.text = title
-        let image = UIImage.init(named: norImageName)
+    func fitUI(frame: CGRect? = nil) -> Void {
+        let width = UIScreen.main.bounds.width / 2
+        let height = UIScreen.main.bounds.height / 2
         
+        norImageView.frame = CGRect.init(x: 0, y: 0, width: width, height: height)
+        
+        filterImgaeView.frame = CGRect.init(x: width, y: 0, width: width, height: height)
+        
+        tipLabel.frame     = CGRect.init(x: 100, y: norImageView.frame.minX - 30, width: 200, height: 30)
+    }
+    
+    func setTitle(title: String, image: UIImage ,filter: GPUImageFilterGroup? = nil) -> Void {
+        tipLabel.text = title
         norImageView.image = image
         
         if filter == nil {
-            self.filterImgaeView.image = AIFilterTool.applyIF1977Filter(image: image!)
+            self.filterImgaeView.image = AIFilterTool.applySierraFilter(image: image)
         } else {
-            self.filterImgaeView.image = AIFilterTool.applyFilter(filter: filter!, image: image!)
+            self.filterImgaeView.image = AIFilterTool.applyFilter(filter: filter!, image: image)
         }
     }
 }

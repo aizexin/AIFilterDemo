@@ -25,25 +25,29 @@
                                     <action selector="onClickSnap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bvc-87-CSN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qyo-fK-fC3">
-                                <rect key="frame" x="38" y="111" width="149" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="change"/>
-                                <connections>
-                                    <action selector="onClickChangeFilter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7T0-dc-uDR"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TLU-VU-xHG" customClass="GPUImageView">
+                                <rect key="frame" x="0.0" y="177.5" width="375" height="332"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="332" id="GcE-jz-oUV"/>
+                                    <constraint firstAttribute="width" constant="375" id="TEd-R8-gk2"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="QYz-Zz-cQj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ham-CH-jfU"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QYz-Zz-cQj" secondAttribute="trailing" id="VKC-ec-Yoy"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="QYz-Zz-cQj" secondAttribute="bottom" id="ZUa-Ih-vkO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QYz-Zz-cQj" secondAttribute="trailing" id="0Ku-E0-Xlb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="QYz-Zz-cQj" secondAttribute="bottom" id="XF8-Wo-rDg"/>
+                            <constraint firstItem="TLU-VU-xHG" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="ZfK-2B-ygu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TLU-VU-xHG" secondAttribute="trailing" id="ePF-6t-yc8"/>
+                            <constraint firstItem="QYz-Zz-cQj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ef1-XV-3tq"/>
+                            <constraint firstItem="TLU-VU-xHG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="s1n-g5-XJq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="preview" destination="TLU-VU-xHG" id="2a2-iC-5vS"/>
                         <outlet property="snap" destination="QYz-Zz-cQj" id="I5I-lw-xjM"/>
                     </connections>
                 </viewController>

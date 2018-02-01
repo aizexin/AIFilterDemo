@@ -14,83 +14,36 @@ class ViewController: UIViewController {
 
     var videoCamera:GPUImageStillCamera?
     var filter:GPUImageFilter?
-    let classArray = ["IF1977Filter","IFAmaroFilter","IFBrannanFilter","IFEarlybirdFilter","IFHefeFilter"
-        ,"IFHudsonFilter","IFInkwellFilter","IFLomofiFilter","IFLordKelvinFilter"
-        ,"IFNashvilleFilter","IFNormalFilter","IFRiseFilter","IFSierraFilter","IFSutroFilter"
-        ,"IFToasterFilter","IFValenciaFilter","IFWaldenFilter","IFXproIIFilter"
-        ,"FWSierraFilter","FWValenciaFilter"]
-    var index = 0
-    
-    
+
+    @IBOutlet weak var preview: GPUImageView!
     @IBOutlet weak var snap: UIButton!
-    var contentView   : UIScrollView!
-    
-    var coldCompareView : CompareFilterView!
-    
-    var midCompareView : CompareFilterView!
-    
-    var warmCompareView : CompareFilterView!
-    
-    var normalCompareView : CompareFilterView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        contentView = UIScrollView.init(frame: view.bounds)
-        contentView.contentSize = CGSize.init(width: 400, height: 230 * 4)
-        
-        view.insertSubview(contentView, belowSubview: snap)
-        
-        normalCompareView = CompareFilterView()
-        normalCompareView.setTitle(title: "normal", norImageName: "7无")
-        normalCompareView.frame = CGRect.init(x: 0, y: 0, width: 400, height: 230)
-        contentView.addSubview(normalCompareView)
-        
-        coldCompareView = CompareFilterView()
-        coldCompareView.setTitle(title: "cold", norImageName: "7冷")
-        coldCompareView.frame = CGRect.init(x: 0, y: 230, width: 400, height: 230)
-        contentView.addSubview(coldCompareView)
-        
-        midCompareView = CompareFilterView()
-        midCompareView.setTitle(title: "mid", norImageName: "7中")
-        midCompareView.frame = CGRect.init(x: 0, y: 230 * 2, width: 400, height: 230)
-        contentView.addSubview(midCompareView)
-        
-        warmCompareView = CompareFilterView()
-        warmCompareView.setTitle(title: "warm", norImageName: "7暖")
-        warmCompareView.frame = CGRect.init(x: 0, y: 230 * 3, width: 400, height: 230)
-        contentView.addSubview(warmCompareView)
-        
+        filter = IFNormalFilter()
+        videoCamera = GPUImageStillCamera(sessionPreset: AVCaptureSession.Preset.vga640x480.rawValue, cameraPosition: .front)
+        videoCamera?.outputImageOrientation = .portrait;
+        videoCamera?.addTarget(filter)
+        filter?.addTarget(preview)
+        videoCamera?.startCapture()
     }
 
     //MARK: Action
     @IBAction func onClickSnap(_ sender: Any) {
-        if let capture = self.contentView.capture {
+        videoCamera?.capturePhotoAsImageProcessedUp(toFilter: filter, with: .upMirrored, withCompletionHandler: { (image, error) in
+            guard let filterImage = image else {
+                return
+            }
             PHPhotoLibrary.shared().performChanges({
-                PHAssetChangeRequest.creationRequestForAsset(from: capture)
+                PHAssetChangeRequest.creationRequestForAsset(from: filterImage)
             }, completionHandler: nil)
-        } else {
-            print("截图失败")
-        }
+            let photoVC = AIPhotoViewController()
+            photoVC.image = filterImage;
+            self.present(photoVC, animated: true, completion: nil)
+            
+        })
     }
-    @IBAction func onClickChangeFilter(_ sender: UIButton) {
-        let classString = classArray[index]
-        print("-----\(classString)")
-        sender.setTitle(classString, for: .normal)
-        let classobject  =  NSClassFromString(classString)
-        index = (index + 1) % classArray.count
-        guard let childVcType = classobject as? GPUImageFilterGroup.Type else {
-            print("没有得到的类型")
-            return
-        }
-        let filter2 = childVcType.init()
-        
-        normalCompareView.setTitle(title: "normal", norImageName: "7无",filter: filter2)
-//        coldCompareView.setTitle(title: "cold", norImageName: "7冷",filter: filter2)
-//        midCompareView.setTitle(title: "mid", norImageName: "7中",filter: filter2)
-//        warmCompareView.setTitle(title: "warm", norImageName: "7暖",filter: filter2)
-        
-    }
-
+    
 }
 
 extension UIScrollView {
