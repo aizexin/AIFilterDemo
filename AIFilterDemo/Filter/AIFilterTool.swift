@@ -69,6 +69,7 @@ class AIFilterTool: NSObject {
         let filterImage = UIImage.init(cgImage: image2!.cgImage!, scale: 2, orientation: image.imageOrientation)
         return filterImage
     }
+    //可用
     class func applyIFBrannanFilter(image: UIImage) -> UIImage {
         let filter = IFBrannanFilter()
         let pic    = GPUImagePicture.init(image: image)
@@ -90,7 +91,7 @@ class AIFilterTool: NSObject {
         return filterImage
     }
     class func applyIFHefeFilter(image: UIImage) -> UIImage {
-        let filter = AIFilterHefe()
+        let filter = IFHefeFilter()
         let pic    = GPUImagePicture.init(image: image)
         pic?.addTarget(filter)
         pic?.processImage()

@@ -68,10 +68,10 @@ NSString *const kGPUImageFiveInputTextureVertexShaderString = SHADER_STRING
     
     runSynchronouslyOnVideoProcessingQueue(^{
         [GPUImageContext useImageProcessingContext];
-        filterFourthTextureCoordinateAttribute = [filterProgram attributeIndex:@"inputTextureCoordinate5"];
+        filterfifthTextureCoordinateAttribute = [filterProgram attributeIndex:@"inputTextureCoordinate5"];
         
-        filterInputTextureUniform4 = [filterProgram uniformIndex:@"inputImageTexture5"]; // This does assume a name of "inputImageTexture3" for the third input texture in the fragment shader
-        glEnableVertexAttribArray(filterFourthTextureCoordinateAttribute);
+        filterInputTextureUniform5 = [filterProgram uniformIndex:@"inputImageTexture5"]; // This does assume a name of "inputImageTexture3" for the third input texture in the fragment shader
+        glEnableVertexAttribArray(filterfifthTextureCoordinateAttribute);
     });
     
     return self;
@@ -308,7 +308,7 @@ NSString *const kGPUImageFiveInputTextureVertexShaderString = SHADER_STRING
 - (void)newFrameReadyAtTime:(CMTime)frameTime atIndex:(NSInteger)textureIndex;
 {
     // You can set up infinite update loops, so this helps to short circuit them
-    if (hasReceivedFirstFrame && hasReceivedSecondFrame && hasReceivedThirdFrame)
+    if (hasReceivedFirstFrame && hasReceivedSecondFrame && hasReceivedThirdFrame && hasReceivedFourthFrame)
     {
         return;
     }

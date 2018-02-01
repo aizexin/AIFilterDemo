@@ -9,8 +9,9 @@
 #import <GPUImage/GPUImageFilterGroup.h>
 #import <GPUImage/GPUImageThreeInputFilter.h>
 #import <GPUImage/GPUImagePicture.h>
+#import "GPUImageSixInputFilter.h"
 
-@interface AIFilterEarlybird : GPUImageThreeInputFilter
+@interface AIFilterEarlybird : GPUImageSixInputFilter
 
 @end
 
