@@ -132,5 +132,105 @@ class AIFilterTool: NSObject {
         let filterImage = UIImage.init(cgImage: image2!.cgImage!, scale: 2, orientation: image.imageOrientation)
         return filterImage
     }
+    class func applyIFLordKelvinFilter(image: UIImage) -> UIImage {
+        let filter = IFLordKelvinFilter()
+        let pic    = GPUImagePicture.init(image: image)
+        pic?.addTarget(filter)
+        pic?.processImage()
+        filter.useNextFrameForImageCapture()
+        let image2 = filter.imageFromCurrentFramebuffer()
+        let filterImage = UIImage.init(cgImage: image2!.cgImage!, scale: 2, orientation: image.imageOrientation)
+        return filterImage
+    }
+    class func applyIFNashvilleFilter(image: UIImage) -> UIImage {
+        let filter = IFNashvilleFilter()
+        let pic    = GPUImagePicture.init(image: image)
+        pic?.addTarget(filter)
+        pic?.processImage()
+        filter.useNextFrameForImageCapture()
+        let image2 = filter.imageFromCurrentFramebuffer()
+        let filterImage = UIImage.init(cgImage: image2!.cgImage!, scale: 2, orientation: image.imageOrientation)
+        return filterImage
+    }
+    class func applyIFNormalFilter(image: UIImage) -> UIImage {
+        let filter = IFNormalFilter()
+        let pic    = GPUImagePicture.init(image: image)
+        pic?.addTarget(filter)
+        pic?.processImage()
+        filter.useNextFrameForImageCapture()
+        let image2 = filter.imageFromCurrentFramebuffer()
+        let filterImage = UIImage.init(cgImage: image2!.cgImage!, scale: 2, orientation: image.imageOrientation)
+        return filterImage
+    }
+    class func applyIFRiseFilter(image: UIImage) -> UIImage {
+        let filter = IFRiseFilter()
+        let pic    = GPUImagePicture.init(image: image)
+        pic?.addTarget(filter)
+        pic?.processImage()
+        filter.useNextFrameForImageCapture()
+        let image2 = filter.imageFromCurrentFramebuffer()
+        let filterImage = UIImage.init(cgImage: image2!.cgImage!, scale: 2, orientation: image.imageOrientation)
+        return filterImage
+    }
+    class func applyIFSierraFilter(image: UIImage) -> UIImage {
+        let filter = IFSierraFilter()
+        let pic    = GPUImagePicture.init(image: image)
+        pic?.addTarget(filter)
+        pic?.processImage()
+        filter.useNextFrameForImageCapture()
+        let image2 = filter.imageFromCurrentFramebuffer()
+        let filterImage = UIImage.init(cgImage: image2!.cgImage!, scale: 2, orientation: image.imageOrientation)
+        return filterImage
+    }
+    class func applyIFSutroFilter(image: UIImage) -> UIImage {
+        let filter = IFSutroFilter()
+        let pic    = GPUImagePicture.init(image: image)
+        pic?.addTarget(filter)
+        pic?.processImage()
+        filter.useNextFrameForImageCapture()
+        let image2 = filter.imageFromCurrentFramebuffer()
+        let filterImage = UIImage.init(cgImage: image2!.cgImage!, scale: 2, orientation: image.imageOrientation)
+        return filterImage
+    }
+    class func applyIFToasterFilter(image: UIImage) -> UIImage {
+        let filter = IFToasterFilter()
+        let pic    = GPUImagePicture.init(image: image)
+        pic?.addTarget(filter)
+        pic?.processImage()
+        filter.useNextFrameForImageCapture()
+        let image2 = filter.imageFromCurrentFramebuffer()
+        let filterImage = UIImage.init(cgImage: image2!.cgImage!, scale: 2, orientation: image.imageOrientation)
+        return filterImage
+    }
+    class func applyIFValenciaFilter(image: UIImage) -> UIImage {
+        let filter = IFValenciaFilter()
+        let pic    = GPUImagePicture.init(image: image)
+        pic?.addTarget(filter)
+        pic?.processImage()
+        filter.useNextFrameForImageCapture()
+        let image2 = filter.imageFromCurrentFramebuffer()
+        let filterImage = UIImage.init(cgImage: image2!.cgImage!, scale: 2, orientation: image.imageOrientation)
+        return filterImage
+    }
+    class func applyIFWaldenFilter(image: UIImage) -> UIImage {
+        let filter = IFWaldenFilter()
+        let pic    = GPUImagePicture.init(image: image)
+        pic?.addTarget(filter)
+        pic?.processImage()
+        filter.useNextFrameForImageCapture()
+        let image2 = filter.imageFromCurrentFramebuffer()
+        let filterImage = UIImage.init(cgImage: image2!.cgImage!, scale: 2, orientation: image.imageOrientation)
+        return filterImage
+    }
+    class func applyIFXproIIFilter(image: UIImage) -> UIImage {
+        let filter = IFXproIIFilter()
+        let pic    = GPUImagePicture.init(image: image)
+        pic?.addTarget(filter)
+        pic?.processImage()
+        filter.useNextFrameForImageCapture()
+        let image2 = filter.imageFromCurrentFramebuffer()
+        let filterImage = UIImage.init(cgImage: image2!.cgImage!, scale: 2, orientation: image.imageOrientation)
+        return filterImage
+    }
     
 }

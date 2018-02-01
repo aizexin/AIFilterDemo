@@ -6,8 +6,19 @@
 //  Copyright (c) 2012 twitter:@diwup. All rights reserved.
 //
 
-#import "IFImageFilter.h"
+#import <GPUImage/GPUImageFilterGroup.h>
+#import "GPUImageFourInputFilter.h"
+#import <GPUImage/GPUImagePicture.h>
 
-@interface IFSierraFilter : IFImageFilter
+@interface AIFilterIFSierraFilter : GPUImageFourInputFilter
+
+@end
+
+@interface IFSierraFilter : GPUImageFilterGroup
+{
+    GPUImagePicture *imageSource1;
+    GPUImagePicture *imageSource2;
+    GPUImagePicture *imageSource3;
+}
 
 @end

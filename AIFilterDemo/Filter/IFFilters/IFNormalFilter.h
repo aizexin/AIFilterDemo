@@ -6,8 +6,10 @@
 //  Copyright (c) 2012 twitter:@diwup. All rights reserved.
 //
 
-#import "IFImageFilter.h"
+#import <GPUImage/GPUImageFilterGroup.h>
+#import <GPUImage/GPUImageThreeInputFilter.h>
+#import <GPUImage/GPUImagePicture.h>
 
-@interface IFNormalFilter : IFImageFilter
+@interface IFNormalFilter : GPUImageFilter
 
 @end

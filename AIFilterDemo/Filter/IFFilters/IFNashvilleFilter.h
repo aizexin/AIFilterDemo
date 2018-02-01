@@ -6,8 +6,17 @@
 //  Copyright (c) 2012 twitter:@diwup. All rights reserved.
 //
 
-#import "IFImageFilter.h"
+#import <GPUImage/GPUImageFilterGroup.h>
+#import <GPUImage/GPUImageThreeInputFilter.h>
+#import <GPUImage/GPUImagePicture.h>
 
-@interface IFNashvilleFilter : IFImageFilter
+@interface AIFilterIFNashville : GPUImageTwoInputFilter
+
+@end
+
+@interface IFNashvilleFilter : GPUImageFilterGroup
+{
+    GPUImagePicture *imageSource1;
+}
 
 @end

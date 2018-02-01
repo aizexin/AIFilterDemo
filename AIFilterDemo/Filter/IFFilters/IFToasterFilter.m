@@ -78,7 +78,7 @@ NSString *const kIFToasterShaderString = SHADER_STRING
  }
 );
 
-@implementation IFToasterFilter
+@implementation AIFilterIFToasterFilter
 
 - (id)init;
 {
@@ -91,3 +91,49 @@ NSString *const kIFToasterShaderString = SHADER_STRING
 }
 
 @end
+
+@implementation IFToasterFilter
+
+- (id)init
+{
+    if (!(self = [super init]))
+    {
+        return nil;
+    }
+    
+    AIFilterIFToasterFilter *filter = [[AIFilterIFToasterFilter alloc] init];
+    [self addFilter:filter];
+    
+    UIImage *image1 = [UIImage imageNamed:@"toasterMetal"];
+    imageSource1 = [[GPUImagePicture alloc] initWithImage:image1];
+    [imageSource1 addTarget:filter atTextureLocation:1];
+    [imageSource1 processImage];
+    
+    UIImage *image2 = [UIImage imageNamed:@"toasterSoftLight"];
+    imageSource2 = [[GPUImagePicture alloc] initWithImage:image2];
+    [imageSource2 addTarget:filter atTextureLocation:2];
+    [imageSource2 processImage];
+    
+    UIImage *image3 = [UIImage imageNamed:@"toasterCurves"];
+    imageSource3 = [[GPUImagePicture alloc] initWithImage:image3];
+    [imageSource3 addTarget:filter atTextureLocation:3];
+    [imageSource3 processImage];
+    
+    UIImage *image4 = [UIImage imageNamed:@"toasterOverlayMapWarm"];
+    imageSource4 = [[GPUImagePicture alloc] initWithImage:image4];
+    [imageSource4 addTarget:filter atTextureLocation:4];
+    [imageSource4 processImage];
+    
+    UIImage *image5 = [UIImage imageNamed:@"toasterColorShift"];
+    imageSource5 = [[GPUImagePicture alloc] initWithImage:image5];
+    [imageSource5 addTarget:filter atTextureLocation:5];
+    [imageSource5 processImage];
+    
+    self.initialFilters = [NSArray arrayWithObjects:filter, nil];
+    self.terminalFilter = filter;
+    
+    return self;
+}
+
+@end
+

@@ -44,7 +44,7 @@ NSString *const kIFXproIIShaderString = SHADER_STRING
  }
 );
 
-@implementation IFXproIIFilter
+@implementation AIFilterIFXpro
 
 - (id)init;
 {
@@ -52,6 +52,36 @@ NSString *const kIFXproIIShaderString = SHADER_STRING
     {
 		return nil;
     }
+    
+    return self;
+}
+
+@end
+
+@implementation IFXproIIFilter
+
+- (id)init
+{
+    if (!(self = [super init]))
+    {
+        return nil;
+    }
+    
+    AIFilterIFXpro *filter = [[AIFilterIFXpro alloc] init];
+    [self addFilter:filter];
+    
+    UIImage *image1 = [UIImage imageNamed:@"xproMap"];
+    imageSource1 = [[GPUImagePicture alloc] initWithImage:image1];
+    [imageSource1 addTarget:filter atTextureLocation:1];
+    [imageSource1 processImage];
+    
+    UIImage *image2 = [UIImage imageNamed:@"vignetteMap"];
+    imageSource2 = [[GPUImagePicture alloc] initWithImage:image2];
+    [imageSource2 addTarget:filter atTextureLocation:2];
+    [imageSource2 processImage];
+    
+    self.initialFilters = [NSArray arrayWithObjects:filter, nil];
+    self.terminalFilter = filter;
     
     return self;
 }

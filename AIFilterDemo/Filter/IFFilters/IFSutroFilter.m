@@ -54,7 +54,7 @@ NSString *const kIFSutroShaderString = SHADER_STRING
  }
 );
 
-@implementation IFSutroFilter
+@implementation AIFilterIFSutroFilter
 
 - (id)init;
 {
@@ -62,6 +62,51 @@ NSString *const kIFSutroShaderString = SHADER_STRING
     {
 		return nil;
     }
+    
+    return self;
+}
+
+@end
+
+@implementation IFSutroFilter
+
+- (id)init
+{
+    if (!(self = [super init]))
+    {
+        return nil;
+    }
+    
+    AIFilterIFSutroFilter *filter = [[AIFilterIFSutroFilter alloc] init];
+    [self addFilter:filter];
+    
+    UIImage *image1 = [UIImage imageNamed:@"vignetteMap"];
+    imageSource1 = [[GPUImagePicture alloc] initWithImage:image1];
+    [imageSource1 addTarget:filter atTextureLocation:1];
+    [imageSource1 processImage];
+    
+    UIImage *image2 = [UIImage imageNamed:@"sutroMetal"];
+    imageSource2 = [[GPUImagePicture alloc] initWithImage:image2];
+    [imageSource2 addTarget:filter atTextureLocation:2];
+    [imageSource2 processImage];
+    
+    UIImage *image3 = [UIImage imageNamed:@"softLight"];
+    imageSource3 = [[GPUImagePicture alloc] initWithImage:image3];
+    [imageSource3 addTarget:filter atTextureLocation:3];
+    [imageSource3 processImage];
+    
+    UIImage *image4 = [UIImage imageNamed:@"sutroEdgeBurn"];
+    imageSource4 = [[GPUImagePicture alloc] initWithImage:image4];
+    [imageSource4 addTarget:filter atTextureLocation:4];
+    [imageSource4 processImage];
+    
+    UIImage *image5 = [UIImage imageNamed:@"sutroCurves"];
+    imageSource5 = [[GPUImagePicture alloc] initWithImage:image5];
+    [imageSource5 addTarget:filter atTextureLocation:5];
+    [imageSource5 processImage];
+    
+    self.initialFilters = [NSArray arrayWithObjects:filter, nil];
+    self.terminalFilter = filter;
     
     return self;
 }

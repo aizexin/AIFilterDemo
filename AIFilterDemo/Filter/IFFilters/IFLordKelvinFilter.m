@@ -37,7 +37,7 @@ NSString *const kLordKelvinShaderString = SHADER_STRING
  }
 );
 
-@implementation IFLordKelvinFilter
+@implementation AIFilterLordKelvin
 
 - (id)init;
 {
@@ -45,6 +45,31 @@ NSString *const kLordKelvinShaderString = SHADER_STRING
     {
 		return nil;
     }
+    
+    return self;
+}
+
+@end
+
+@implementation IFLordKelvinFilter
+
+- (id)init
+{
+    if (!(self = [super init]))
+    {
+        return nil;
+    }
+    
+    AIFilterLordKelvin *filter = [[AIFilterLordKelvin alloc] init];
+    [self addFilter:filter];
+    
+    UIImage *image1 = [UIImage imageNamed:@"kelvinMap"];
+    imageSource1 = [[GPUImagePicture alloc] initWithImage:image1];
+    [imageSource1 addTarget:filter atTextureLocation:1];
+    [imageSource1 processImage];
+    
+    self.initialFilters = [NSArray arrayWithObjects:filter, nil];
+    self.terminalFilter = filter;
     
     return self;
 }

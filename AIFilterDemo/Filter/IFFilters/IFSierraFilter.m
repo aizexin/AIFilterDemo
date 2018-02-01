@@ -39,7 +39,7 @@ NSString *const kIFSierraShaderString = SHADER_STRING
  }
 );
 
-@implementation IFSierraFilter
+@implementation AIFilterIFSierraFilter
 
 - (id)init;
 {
@@ -47,6 +47,40 @@ NSString *const kIFSierraShaderString = SHADER_STRING
     {
 		return nil;
     }
+    
+    return self;
+}
+
+@end
+@implementation IFSierraFilter
+
+- (id)init
+{
+    if (!(self = [super init]))
+    {
+        return nil;
+    }
+    
+    AIFilterIFSierraFilter *filter = [[AIFilterIFSierraFilter alloc] init];
+    [self addFilter:filter];
+    
+    UIImage *image1 = [UIImage imageNamed:@"sierraVignette"];
+    imageSource1 = [[GPUImagePicture alloc] initWithImage:image1];
+    [imageSource1 addTarget:filter atTextureLocation:1];
+    [imageSource1 processImage];
+    
+    UIImage *image2 = [UIImage imageNamed:@"overlayMap"];
+    imageSource2 = [[GPUImagePicture alloc] initWithImage:image2];
+    [imageSource2 addTarget:filter atTextureLocation:2];
+    [imageSource2 processImage];
+    
+    UIImage *image3 = [UIImage imageNamed:@"sierraMap"];
+    imageSource3 = [[GPUImagePicture alloc] initWithImage:image3];
+    [imageSource3 addTarget:filter atTextureLocation:3];
+    [imageSource3 processImage];
+    
+    self.initialFilters = [NSArray arrayWithObjects:filter, nil];
+    self.terminalFilter = filter;
     
     return self;
 }

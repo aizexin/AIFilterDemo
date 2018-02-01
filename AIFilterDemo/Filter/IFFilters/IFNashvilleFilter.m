@@ -28,7 +28,7 @@ NSString *const kIFNashvilleShaderString = SHADER_STRING
  }
 );
 
-@implementation IFNashvilleFilter
+@implementation AIFilterIFNashville
 
 - (id)init;
 {
@@ -36,6 +36,31 @@ NSString *const kIFNashvilleShaderString = SHADER_STRING
     {
 		return nil;
     }
+    
+    return self;
+}
+
+@end
+
+@implementation IFNashvilleFilter
+
+- (id)init
+{
+    if (!(self = [super init]))
+    {
+        return nil;
+    }
+    
+    AIFilterIFNashville *filter = [[AIFilterIFNashville alloc] init];
+    [self addFilter:filter];
+    
+    UIImage *image1 = [UIImage imageNamed:@"nashvilleMap"];
+    imageSource1 = [[GPUImagePicture alloc] initWithImage:image1];
+    [imageSource1 addTarget:filter atTextureLocation:1];
+    [imageSource1 processImage];
+    
+    self.initialFilters = [NSArray arrayWithObjects:filter, nil];
+    self.terminalFilter = filter;
     
     return self;
 }
