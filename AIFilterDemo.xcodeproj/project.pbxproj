@@ -8,12 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		35DF3E9CB236F2DD4E688A61 /* Pods_AIFilterDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ACDBAC2B2C9B4404A21524 /* Pods_AIFilterDemo.framework */; };
-		45C241F720216B2900658F6F /* IFImageFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C241F320216B2900658F6F /* IFImageFilter.m */; };
 		45C241FF20216CF500658F6F /* UIImage+IF.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C241FD20216CF500658F6F /* UIImage+IF.m */; };
 		45C2420320216D2800658F6F /* valenciaGradientMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 45C2420020216D2700658F6F /* valenciaGradientMap.png */; };
 		45C2420420216D2800658F6F /* vignetteMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 45C2420120216D2700658F6F /* vignetteMap.png */; };
 		45C2420520216D2800658F6F /* willowSoftLight100.png in Resources */ = {isa = PBXBuildFile; fileRef = 45C2420220216D2800658F6F /* willowSoftLight100.png */; };
-		45C2425D20216ED200658F6F /* GPUImageOpenGLESContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C2425C20216ED200658F6F /* GPUImageOpenGLESContext.m */; };
 		45C242B92021A5B800658F6F /* IFNormalFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C242952021A5B500658F6F /* IFNormalFilter.m */; };
 		45C242BA2021A5B800658F6F /* IFEarlybirdFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C242962021A5B500658F6F /* IFEarlybirdFilter.m */; };
 		45C242BB2021A5B800658F6F /* IFHefeFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C242972021A5B500658F6F /* IFHefeFilter.m */; };
@@ -67,15 +65,11 @@
 
 /* Begin PBXFileReference section */
 		45C241F220216B2900658F6F /* InstaFilters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstaFilters.h; sourceTree = "<group>"; };
-		45C241F320216B2900658F6F /* IFImageFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFImageFilter.m; sourceTree = "<group>"; };
-		45C241F520216B2900658F6F /* IFImageFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFImageFilter.h; sourceTree = "<group>"; };
 		45C241FD20216CF500658F6F /* UIImage+IF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+IF.m"; sourceTree = "<group>"; };
 		45C241FE20216CF500658F6F /* UIImage+IF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+IF.h"; sourceTree = "<group>"; };
 		45C2420020216D2700658F6F /* valenciaGradientMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = valenciaGradientMap.png; sourceTree = "<group>"; };
 		45C2420120216D2700658F6F /* vignetteMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vignetteMap.png; sourceTree = "<group>"; };
 		45C2420220216D2800658F6F /* willowSoftLight100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = willowSoftLight100.png; sourceTree = "<group>"; };
-		45C2425B20216ED200658F6F /* GPUImageOpenGLESContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageOpenGLESContext.h; sourceTree = "<group>"; };
-		45C2425C20216ED200658F6F /* GPUImageOpenGLESContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageOpenGLESContext.m; sourceTree = "<group>"; };
 		45C242952021A5B500658F6F /* IFNormalFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFNormalFilter.m; sourceTree = "<group>"; };
 		45C242962021A5B500658F6F /* IFEarlybirdFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFEarlybirdFilter.m; sourceTree = "<group>"; };
 		45C242972021A5B500658F6F /* IFHefeFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFHefeFilter.m; sourceTree = "<group>"; };
@@ -173,8 +167,6 @@
 			isa = PBXGroup;
 			children = (
 				45C241F220216B2900658F6F /* InstaFilters.h */,
-				45C241F520216B2900658F6F /* IFImageFilter.h */,
-				45C241F320216B2900658F6F /* IFImageFilter.m */,
 			);
 			path = IFImage;
 			sourceTree = "<group>";
@@ -251,8 +243,6 @@
 				45C242CF2022BAAF00658F6F /* GPUImageFiveInputFilter.m */,
 				45C242D12022CF7D00658F6F /* GPUImageSixInputFilter.h */,
 				45C242D22022CF7D00658F6F /* GPUImageSixInputFilter.m */,
-				45C2425B20216ED200658F6F /* GPUImageOpenGLESContext.h */,
-				45C2425C20216ED200658F6F /* GPUImageOpenGLESContext.m */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -558,7 +548,6 @@
 				45F20C90201EE4320084BD0E /* FWValenciaFilter.m in Sources */,
 				45F878A3201B2E630056A6A8 /* CompareFilterView.swift in Sources */,
 				45C242C52021A5B800658F6F /* IFAmaroFilter.m in Sources */,
-				45C2425D20216ED200658F6F /* GPUImageOpenGLESContext.m in Sources */,
 				45C242BB2021A5B800658F6F /* IFHefeFilter.m in Sources */,
 				45C242D32022CF7D00658F6F /* GPUImageSixInputFilter.m in Sources */,
 				45C242BC2021A5B800658F6F /* IFLomofiFilter.m in Sources */,
@@ -568,7 +557,6 @@
 				45C242C92021A5B800658F6F /* IFLordKelvinFilter.m in Sources */,
 				45F87897201ADCED0056A6A8 /* AIFilterTool.swift in Sources */,
 				45C242BA2021A5B800658F6F /* IFEarlybirdFilter.m in Sources */,
-				45C241F720216B2900658F6F /* IFImageFilter.m in Sources */,
 				45F2D5C82015CDC8001B970D /* AppDelegate.swift in Sources */,
 				45C242C22021A5B800658F6F /* IFXproIIFilter.m in Sources */,
 			);

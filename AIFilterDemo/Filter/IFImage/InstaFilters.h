@@ -29,7 +29,6 @@ typedef enum {
 } IFFilterType; 
 
 #import "UIImage+IF.h"
-#import "IFImageFilter.h"
 #import "IFSutroFilter.h"
 #import "IFAmaroFilter.h"
 #import "IFNormalFilter.h"
