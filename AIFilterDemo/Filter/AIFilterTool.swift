@@ -10,6 +10,7 @@ import UIKit
 import GPUImage
 
 class AIFilterTool: NSObject {
+    //可用
     class func applySierraFilter(image: UIImage) -> UIImage {
         let filter = FWSierraFilter()
         filter.forceProcessing(at: CGSize.init(width: image.size.width, height: image.size.height ))
@@ -21,7 +22,7 @@ class AIFilterTool: NSObject {
         let filterImage = UIImage.init(cgImage: image2!.cgImage!, scale: 2, orientation: image.imageOrientation)
         return filterImage
     }
-    
+    //可用
     class func applyValenciaFilter(image: UIImage) -> UIImage {
         let filter = FWValenciaFilter()
         filter.forceProcessing(at: CGSize.init(width: image.size.width, height: image.size.height ))
@@ -33,7 +34,7 @@ class AIFilterTool: NSObject {
         let filterImage = UIImage.init(cgImage: image2!.cgImage!, scale: 2, orientation: image.imageOrientation)
         return filterImage
     }
-    
+    //可用
     class func applySketchBookFilter(image: UIImage) -> UIImage {
         let filter = GPUImageSketchFilter()
         filter.texelWidth = 0.005
@@ -46,6 +47,7 @@ class AIFilterTool: NSObject {
         let filterImage = UIImage.init(cgImage: image2!.cgImage!, scale: 2, orientation: image.imageOrientation)
         return filterImage
     }
+    //可用
     class func applyIF1977Filter(image: UIImage) -> UIImage {
         let filter = IF1977Filter()
         let pic    = GPUImagePicture.init(image: image)
@@ -56,6 +58,7 @@ class AIFilterTool: NSObject {
         let filterImage = UIImage.init(cgImage: image2!.cgImage!, scale: 2, orientation: image.imageOrientation)
         return filterImage
     }
+    //可用
     class func applyIFAmaroFilter(image: UIImage) -> UIImage {
         let filter = IFAmaroFilter()
         let pic    = GPUImagePicture.init(image: image)
@@ -88,6 +91,17 @@ class AIFilterTool: NSObject {
     }
     class func applyIFHefeFilter(image: UIImage) -> UIImage {
         let filter = AIFilterHefe()
+        let pic    = GPUImagePicture.init(image: image)
+        pic?.addTarget(filter)
+        pic?.processImage()
+        filter.useNextFrameForImageCapture()
+        let image2 = filter.imageFromCurrentFramebuffer()
+        let filterImage = UIImage.init(cgImage: image2!.cgImage!, scale: 2, orientation: image.imageOrientation)
+        return filterImage
+    }
+    //可用
+    class func applyIFHudsonFilter(image: UIImage) -> UIImage {
+        let filter = IFHudsonFilter()
         let pic    = GPUImagePicture.init(image: image)
         pic?.addTarget(filter)
         pic?.processImage()

@@ -39,7 +39,7 @@ NSString *const kIFHudsonShaderString = SHADER_STRING
  }
 );
 
-@implementation IFHudsonFilter
+@implementation AIFilterHudson
 
 - (id)init;
 {
@@ -47,6 +47,41 @@ NSString *const kIFHudsonShaderString = SHADER_STRING
     {
 		return nil;
     }
+    
+    return self;
+}
+
+@end
+
+@implementation IFHudsonFilter
+
+- (id)init
+{
+    if (!(self = [super init]))
+    {
+        return nil;
+    }
+    
+    AIFilterHudson *filter = [[AIFilterHudson alloc] init];
+    [self addFilter:filter];
+    
+    UIImage *image1 = [UIImage imageNamed:@"hudsonBackground"];
+    imageSource1 = [[GPUImagePicture alloc] initWithImage:image1];
+    [imageSource1 addTarget:filter atTextureLocation:1];
+    [imageSource1 processImage];
+    
+    UIImage *image2 = [UIImage imageNamed:@"overlayMap"];
+    imageSource2 = [[GPUImagePicture alloc] initWithImage:image2];
+    [imageSource2 addTarget:filter atTextureLocation:2];
+    [imageSource2 processImage];
+    
+    UIImage *image3 = [UIImage imageNamed:@"hudsonMap"];
+    imageSource3 = [[GPUImagePicture alloc] initWithImage:image3];
+    [imageSource3 addTarget:filter atTextureLocation:3];
+    [imageSource3 processImage];
+    
+    self.initialFilters = [NSArray arrayWithObjects:filter, nil];
+    self.terminalFilter = filter;
     
     return self;
 }

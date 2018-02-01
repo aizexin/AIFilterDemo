@@ -33,6 +33,7 @@
 		45C242C92021A5B800658F6F /* IFLordKelvinFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C242B32021A5B700658F6F /* IFLordKelvinFilter.m */; };
 		45C242CA2021A5B800658F6F /* IFHudsonFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C242B72021A5B700658F6F /* IFHudsonFilter.m */; };
 		45C242CD2021B05000658F6F /* AIFragmentShaderConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C242CC2021B05000658F6F /* AIFragmentShaderConfigure.m */; };
+		45C242D02022BAAF00658F6F /* GPUImageFiveInputFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C242CF2022BAAF00658F6F /* GPUImageFiveInputFilter.m */; };
 		45F20C90201EE4320084BD0E /* FWValenciaFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F20C8F201EE4320084BD0E /* FWValenciaFilter.m */; };
 		45F2D5C82015CDC8001B970D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F2D5C72015CDC8001B970D /* AppDelegate.swift */; };
 		45F2D5CA2015CDC8001B970D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F2D5C92015CDC8001B970D /* ViewController.swift */; };
@@ -113,6 +114,8 @@
 		45C242B82021A5B800658F6F /* IFSutroFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFSutroFilter.h; sourceTree = "<group>"; };
 		45C242CB2021B05000658F6F /* AIFragmentShaderConfigure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIFragmentShaderConfigure.h; sourceTree = "<group>"; };
 		45C242CC2021B05000658F6F /* AIFragmentShaderConfigure.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AIFragmentShaderConfigure.m; sourceTree = "<group>"; };
+		45C242CE2022BAAF00658F6F /* GPUImageFiveInputFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageFiveInputFilter.h; sourceTree = "<group>"; };
+		45C242CF2022BAAF00658F6F /* GPUImageFiveInputFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageFiveInputFilter.m; sourceTree = "<group>"; };
 		45F20C8E201EE4310084BD0E /* FWValenciaFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWValenciaFilter.h; sourceTree = "<group>"; };
 		45F20C8F201EE4320084BD0E /* FWValenciaFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWValenciaFilter.m; sourceTree = "<group>"; };
 		45F2D5C42015CDC8001B970D /* AIFilterDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIFilterDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -246,6 +249,8 @@
 				45F20C8F201EE4320084BD0E /* FWValenciaFilter.m */,
 				45F8789F201B1C050056A6A8 /* GPUImageFourInputFilter.h */,
 				45F878A0201B1C050056A6A8 /* GPUImageFourInputFilter.m */,
+				45C242CE2022BAAF00658F6F /* GPUImageFiveInputFilter.h */,
+				45C242CF2022BAAF00658F6F /* GPUImageFiveInputFilter.m */,
 				45C2425B20216ED200658F6F /* GPUImageOpenGLESContext.h */,
 				45C2425C20216ED200658F6F /* GPUImageOpenGLESContext.m */,
 			);
@@ -539,6 +544,7 @@
 				45C242B92021A5B800658F6F /* IFNormalFilter.m in Sources */,
 				45C242BF2021A5B800658F6F /* IFSutroFilter.m in Sources */,
 				45F8789B201B16BB0056A6A8 /* FWSierraFilter.m in Sources */,
+				45C242D02022BAAF00658F6F /* GPUImageFiveInputFilter.m in Sources */,
 				45C242C82021A5B800658F6F /* IFRiseFilter.m in Sources */,
 				45C242BD2021A5B800658F6F /* IFInkwellFilter.m in Sources */,
 				45C242C12021A5B800658F6F /* IFToasterFilter.m in Sources */,
