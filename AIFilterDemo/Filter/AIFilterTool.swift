@@ -122,4 +122,15 @@ class AIFilterTool: NSObject {
         return filterImage
     }
     
+    class func applyIFLomofiFilter(image: UIImage) -> UIImage {
+        let filter = IFLomofiFilter()
+        let pic    = GPUImagePicture.init(image: image)
+        pic?.addTarget(filter)
+        pic?.processImage()
+        filter.useNextFrameForImageCapture()
+        let image2 = filter.imageFromCurrentFramebuffer()
+        let filterImage = UIImage.init(cgImage: image2!.cgImage!, scale: 2, orientation: image.imageOrientation)
+        return filterImage
+    }
+    
 }

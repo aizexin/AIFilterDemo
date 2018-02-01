@@ -45,7 +45,7 @@ NSString *const kIFLomofiShaderString = SHADER_STRING
  }
 );
 
-@implementation IFLomofiFilter
+@implementation AIFilterLomofi
 
 - (id)init;
 {
@@ -53,6 +53,36 @@ NSString *const kIFLomofiShaderString = SHADER_STRING
     {
 		return nil;
     }
+    
+    return self;
+}
+
+@end
+
+@implementation IFLomofiFilter
+
+- (id)init
+{
+    if (!(self = [super init]))
+    {
+        return nil;
+    }
+    
+    AIFilterLomofi *filter = [[AIFilterLomofi alloc] init];
+    [self addFilter:filter];
+    
+    UIImage *image1 = [UIImage imageNamed:@"lomoMap"];
+    imageSource1 = [[GPUImagePicture alloc] initWithImage:image1];
+    [imageSource1 addTarget:filter atTextureLocation:1];
+    [imageSource1 processImage];
+    
+    UIImage *image2 = [UIImage imageNamed:@"vignetteMap"];
+    imageSource2 = [[GPUImagePicture alloc] initWithImage:image2];
+    [imageSource2 addTarget:filter atTextureLocation:2];
+    [imageSource2 processImage];
+    
+    self.initialFilters = [NSArray arrayWithObjects:filter, nil];
+    self.terminalFilter = filter;
     
     return self;
 }
